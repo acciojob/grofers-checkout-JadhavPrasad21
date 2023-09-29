@@ -3,8 +3,8 @@ getSumBtn.append("Get Total Price");
 document.body.appendChild(getSumBtn);
 
 const getSum = () => {
-//Add your code here
-	 const priceElements = document.querySelectorAll(".prices");
+    // Step 1: Get all the price elements with class "price"
+    const priceElements = document.querySelectorAll(".price");
 
     // Step 2: Calculate the total price
     let totalPrice = 0;
@@ -15,16 +15,15 @@ const getSum = () => {
         }
     });
 
-    // Step 3: Create a new row and cell to display the total price
+    // Step 3: Create a new row and cells to display the total price
     const table = document.querySelector("table");
     const newRow = table.insertRow(-1); // -1 appends the row to the end of the table
-    const newCell = newRow.insertCell(0);
+    const itemNameCell = newRow.insertCell(0);
+    const totalPriceCell = newRow.insertCell(1);
 
-    // Display the total price in the new cell
-    newCell.textContent = "Total Price: " + totalPrice.toFixed(2); // Format to two decimal places
-};
-  
+    // Set the cell contents
+    itemNameCell.textContent = "Total Price:";
+    totalPriceCell.textContent = totalPrice.toFixed(2); // Format to two decimal places
 };
 
 getSumBtn.addEventListener("click", getSum);
-
